@@ -17,7 +17,6 @@ Created on Tue Oct 21 08:16:36 2025
 #Load dataset using pandas
 
 import pandas as pd
-import seaborn as sns
 data = pd.read_csv('wdi_wide.csv')
 
 #Accessing wanted data
