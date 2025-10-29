@@ -17,14 +17,19 @@ data = pd.read_csv('wdi_wide.csv')
 GNI = data["GNI"]
 life_expectancy_male = data["Life expectancy, male"]
 life_expectancy_female = data["Life expectancy, female"]
-life_expectancy_avg = (data["Life expectancy, male"]+data["Life expectancy, female"])/2
+life_expectancy_avg = (data["Life expectancy, female"]+data["Life expectancy, male"])/2
 
-graph_1 = sns.relplot(x=GNI, y=life_expectancy_avg)
+
+graph_1 = sns.relplot(x=GNI, y=life_expectancy_female)
 plt.xlim(0,(0.2e13))
-plt.ylabel("Life expectancy average (male and female)")
+plt.ylabel("Female life expectancy")
+plt.xlabel("GNI per capita")
+graph_2 = sns.relplot(x=GNI, y=life_expectancy_male)
+plt.xlim(0,(0.2e13))
+plt.ylabel("Male life expectancy")
 plt.xlabel("GNI per capita")
 
-#Yes, generally for both female and male life expectancies, the higher the GNI, the higher the life expectancy
+#Yes, generally for both female and male life expectancies, the higher the GNI, the higher the life expectancy. Females however have a higher life expectancy than males, regardless of GNI
 
 #2)
 region = data["Region"]
