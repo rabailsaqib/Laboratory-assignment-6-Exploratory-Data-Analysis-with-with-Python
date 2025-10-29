@@ -28,7 +28,11 @@ plt.xlabel("GNI per capita")
 
 #2)
 region = data["Region"]
-graph_2 = sns.relplot(x=GNI, y=life_expectancy_avg, hue=region)
+graph_2 = sns.relplot(x=GNI, y=life_expectancy_female, hue=region)
+plt.ylabel("Female life expectancy")
+plt.xlim(0,(0.2e13))
+graph_3 = sns.relplot(x=GNI, y=life_expectancy_male, hue=region)
+plt.ylabel("Male life expectancy")
 plt.xlim(0,(0.2e13))
 
 #3)
