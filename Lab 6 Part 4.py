@@ -94,6 +94,35 @@ plt.xlabel("Region")
 plt.ylabel("Internet Use")
 plt.show()
 
+#6)
+
+#a)Is there any association between Internet use and emissions per capita? ( it seems like there is)
+sns.relplot(data=data, x='Internet use', y='Greenhouse gas emissions',kind='scatter' , hue='Region', )
+plt.xlabel("Internet Use") 
+plt.ylabel("Greenhouse gas emissions")
+plt.show()
+
+#b)Which are the countries with high emissions? (> 0.03)
+high_emissions = data[data['Greenhouse gas emissions'] > 0.03]
+print(high_emissions['Country Name'])
+                     
+#c)Is there much variation by region (with respect to high emissions vs Internet use)?
+# for this we can put them in col instead of hues and compare such as 
+sns.relplot(data=data, x='Internet use', y='Greenhouse gas emissions',kind='scatter' , col='Region', )
+plt.xlabel("Internet Use") 
+plt.ylabel("Greenhouse gas emissions")
+plt.show()
+# here we can see that asia has two points that are higher and even america but there isnt really a direct correlation between internet use and high emission
+
+#d)Do all high income economies have high emissions?
+high_income_regions = pd.crosstab(data["Region"], data["High Income Economy"])
+print(high_income_regions)
+#where 0 is "No" and 1 is "Yes"
+
+#no the hight income economies only include america , asia , Europe and Oceania and they all do have high emissions but asia ,america and europe have more as you can see in the previous scatter graph.
+
+
+
 
 
 
