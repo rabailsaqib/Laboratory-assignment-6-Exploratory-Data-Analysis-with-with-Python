@@ -102,6 +102,8 @@ plt.xlabel("Internet Use")
 plt.ylabel("Greenhouse gas emissions")
 plt.show()
 
+#Yes, there seems to be a positive connection. The scatter plot shows that countries with higher internet use also tend to have higher greenhouse gas emissions per person
+
 #b)Which are the countries with high emissions? (> 0.03)
 high_emissions = data[data['Greenhouse gas emissions'] > 0.03]
 print(high_emissions['Country Name'])
