@@ -18,6 +18,8 @@ GNI = data["GNI"]
 life_expectancy_male = data["Life expectancy, male"]
 life_expectancy_female = data["Life expectancy, female"]
 life_expectancy_avg = (data["Life expectancy, female"]+data["Life expectancy, male"])/2
+data["life_expectancy_female"] = life_expectancy_female
+data["life_expectancy_avg"] = life_expectancy_avg
 
 
 graph_1 = sns.relplot(x=GNI, y=life_expectancy_female)
@@ -49,4 +51,49 @@ sns.relplot(x=rounded_GNI, y=life_expectancy_avg, hue=region, kind="line", error
 plt.xlim(0,(0.2e13))
 
 
-            
+#4)
+sns.lmplot(data=data, x="GNI", y="life_expectancy_avg", hue="Region")
+plt.xlim(0, 2e12) 
+plt.ylim(50, 90)
+plt.xlabel("GNI per capita")
+plt.ylabel("life_expectancy_avg")
+plt.title("GNI vs life_expectancy_avg")
+plt.show()
+
+
+#5)
+
+#q1: is there a relationship between teritary education on female and life expectancy
+sns.relplot(data=data, x='Tertiary education, female', y='life_expectancy_female', kind="scatter", col="Region")
+plt.xlabel("Tertiary Education (Female)")
+plt.ylabel("Female Life Expectancy")
+plt.show()
+
+#q2  is there a relationship between internet use  on female and life expectancy
+sns.relplot(data=data, x='Internet use', y='life_expectancy_female',  kind="scatter", col="Region")
+plt.xlabel("Internet Use")
+plt.ylabel("Female Life Expectancy")
+plt.show()
+
+#q3 is there a relationship between international tourism and internet use 
+sns.relplot(data=data, x='International tourism', y='Internet use', kind="scatter" , hue="Region")
+plt.xlabel("International Tourism")
+plt.ylabel("Internet Use")
+plt.show()
+
+#q4 is there a relationship between population and region
+sns.relplot(data=data, x='Region', y='Population', kind="scatter", hue="Region")
+plt.xlabel("Region")
+plt.ylabel("Population")
+plt.show()
+
+
+#q5 is there a relationship between internet use and region
+sns.relplot(data=data, x='Region', y='Internet use', kind="scatter" , hue ="Region")
+plt.xlabel("Region")
+plt.ylabel("Internet Use")
+plt.show()
+
+
+
+
